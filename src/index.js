@@ -3,15 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import CounterApp from './components/counterApp';
-import CounterApp2 from './components/counterApp2';
-import CounterApp3 from './components/counterApp3';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
       <div>     
-       <CounterApp3 />
+       <App />
       </div>
       
  
