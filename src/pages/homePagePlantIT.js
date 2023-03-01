@@ -53,12 +53,8 @@ class HomePagePlantIt extends React.Component {
         }
     }
 
-
-
-
     render() {
         const plants = this.state.plantCards;
-
         return (
             <div className="container row" id="homePageContainer">
                 {
@@ -71,9 +67,6 @@ class HomePagePlantIt extends React.Component {
 
                     })
                 }
-
-
-
             </div>
         );
     }
