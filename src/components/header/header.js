@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <Navbar bg="dark" expand="lg" id="navbar">
       <Container fluid>
-        <Navbar.Brand href="#" className="nav_action" id="logoHeader">PLANT IT</Navbar.Brand>
+        <Navbar.Brand href="#" className="nav_action" id="logoHeader">PLANTZZ</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -34,15 +34,12 @@ const Header = () => {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
+          <Nav>
+          <Nav.Link href="#action1" className="nav_action" >Sign up</Nav.Link>
+            <Nav.Link href="#action2" className="nav_action">Sign in</Nav.Link>
+          </Nav>
+           
+         
         </Navbar.Collapse>
       </Container>
     </Navbar>     
