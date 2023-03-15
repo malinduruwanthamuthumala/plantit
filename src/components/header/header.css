@@ -1,20 +1,22 @@
 .nav_action {
-    color:rgb(34, 203, 146);
+    color:rgb(242, 247, 245);
     background-color: dark;
 }
 
 #navbarScrollingDropdown{
     background-color: dark;
-    color:rgb(34, 203, 146)
+    color:rgb(240, 246, 241)
 }
 
 #logoHeader{
     font-weight:bolder;
     font-size: x-large;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-display:inherit
     
 }
 
 #navbar{
-    height:70px ;
+    height:80px ;
+    
 }

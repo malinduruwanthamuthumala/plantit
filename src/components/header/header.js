@@ -11,7 +11,7 @@ import "./header.css"
 
 const Header = () => {
     return (
-        <Navbar bg="dark" expand="lg" id="navbar">
+        <Navbar bg="success" expand="lg" id="navbar">
       <Container fluid>
         <Navbar.Brand href="#" className="nav_action" id="logoHeader">PLANTZZ</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
