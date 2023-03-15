@@ -11,7 +11,7 @@ import "./header.css"
 
 const Header = () => {
     return (
-        <Navbar bg="dark" expand="lg" id="navbar">
+        <Navbar bg="success" expand="lg" id="navbar">
       <Container fluid>
         <Navbar.Brand href="#" className="nav_action" id="logoHeader">PLANTZZ</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -35,8 +35,8 @@ const Header = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-          <Nav.Link href="#action1" className="nav_action" >Sign up</Nav.Link>
-            <Nav.Link href="#action2" className="nav_action">Sign in</Nav.Link>
+          <Nav.Link href="/login" className="nav_action" >Sign up</Nav.Link>
+            <Nav.Link href="/register" className="nav_action">Sign in</Nav.Link>
           </Nav>
            
          
