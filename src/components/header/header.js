@@ -35,8 +35,8 @@ const Header = () => {
             </NavDropdown>
           </Nav>
           <Nav>
-          <Nav.Link href="#action1" className="nav_action" >Sign up</Nav.Link>
-            <Nav.Link href="#action2" className="nav_action">Sign in</Nav.Link>
+          <Nav.Link href="/login" className="nav_action" >Sign up</Nav.Link>
+            <Nav.Link href="/register" className="nav_action">Sign in</Nav.Link>
           </Nav>
            
          
