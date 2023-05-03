@@ -4,12 +4,17 @@ import "../components/shared/common.css";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import HomePageSellItemsCardCOmponent from "../components/plantscards/homepageCardComponent";
+import Corousal from "../components/UI/corousal";
+import PaginationLanding from "../components/UI/pagination";
 
 class HomePagePlantIt extends React.Component {
+
+   
 
     constructor() {
         super();
         this.state = {
+            plantCardsPerPage : [],
             plantCards: [{
                 id: '1',
                 title: "red rose",
@@ -50,7 +55,7 @@ class HomePagePlantIt extends React.Component {
                 climetic_conditions: "jhj jsdhfkds sdhjfjkdsf ksdjhfkjsdf ksdjhfksdhjf kdjshfjkdshf kjhfksdjf",
                 scientific_name: "jhsdfjvsdhjfvdsf",
             },{
-                id: '1',
+                id: '5',
                 title: "red rose",
                 img: "https://img.freepik.com/free-photo/faux-watermelon-peperomia-plant-gray-pot_53876-110373.jpg?w=740&t=st=1677663748~exp=1677664348~hmac=e7d99c1f3bb813fcdadc2274738fd6bf2a1f144b4ec6f0f39b6b043501548520",
                 description: "Land plants are multicellular organisms that can be distinguished from other living things by a number of characteristics: They make their own food. Plants are photosynthetic and contain a green pigment called chlorophyll, which enables plants to convert energy from the sun into food. Plants store their food as starch.",
@@ -59,7 +64,7 @@ class HomePagePlantIt extends React.Component {
                 climetic_conditions: "jhj jsdhfkds sdhjfjkdsf ksdjhfkjsdf ksdjhfksdhjf kdjshfjkdshf kjhfksdjf",
                 scientific_name: "jhsdfjvsdhjfvdsf",
             }, {
-                id: '4',
+                id: '6',
                 title: "purple rose",
                 img: "https://img.freepik.com/premium-photo/vases-with-plants-succulents-white-background-3d-illustration_101266-9005.jpg?w=740",
                 description: "Land plants are multicellular organisms that can be distinguished from other living things by a number of characteristics: They make their own food. Plants are photosynthetic and contain a green pigment called chlorophyll, which enables plants to convert energy from the sun into food. Plants store their food as starch.",
@@ -69,7 +74,7 @@ class HomePagePlantIt extends React.Component {
                 scientific_name: "jhsdfjvsdhjfvdsf",
             },
             {
-                id: '3',
+                id: '7',
                 title: "purple rose",
                 img: "https://img.freepik.com/free-photo/birds-nest-plant-beige-pot_53876-134284.jpg?w=740&t=st=1677663609~exp=1677664209~hmac=d2e83c64b9ff02aa5d006994df6d7ec0792feb4c0cb236dcc0ad57c0dcd42599",
                 description: "Land plants are multicellular organisms that can be distinguished from other living things by a number of characteristics: They make their own food. Plants are photosynthetic and contain a green pigment called chlorophyll, which enables plants to convert energy from the sun into food. Plants store their food as starch.",
@@ -77,25 +82,66 @@ class HomePagePlantIt extends React.Component {
                 getPrice: function (key) { return this.prices[key] },
                 climetic_conditions: "jhj jsdhfkds sdhjfjkdsf ksdjhfkjsdf ksdjhfksdhjf kdjshfjkdshf kjhfksdjf",
                 scientific_name: "jhsdfjvsdhjfvdsf",
-            },]
+            },{
+                id: '8',
+                title: "red rose",
+                img: "https://img.freepik.com/free-photo/faux-watermelon-peperomia-plant-gray-pot_53876-110373.jpg?w=740&t=st=1677663748~exp=1677664348~hmac=e7d99c1f3bb813fcdadc2274738fd6bf2a1f144b4ec6f0f39b6b043501548520",
+                description: "Land plants are multicellular organisms that can be distinguished from other living things by a number of characteristics: They make their own food. Plants are photosynthetic and contain a green pigment called chlorophyll, which enables plants to convert energy from the sun into food. Plants store their food as starch.",
+                prices: { "medium": "1300.00", "large": "1600.00", "extraLarge": "2500.00" },
+                getPrice: function (key) { return this.prices[key] },
+                climetic_conditions: "jhj jsdhfkds sdhjfjkdsf ksdjhfkjsdf ksdjhfksdhjf kdjshfjkdshf kjhfksdjf",
+                scientific_name: "jhsdfjvsdhjfvdsf",
+            }],
+            perPage:8,
+            currentPage:0,
+
         }
+        
+    }
+
+    componentDidMount(){
+        debugger
+        this.setPagePagination();
+    }
+
+    setPagePagination = () =>{
+        debugger
+        const plantsList = this.state.plantCards;
+        const perPage = this.state.perPage;
+        const startIndex =  this.state.currentPage * perPage;
+        const noOfPlants = plantsList.length;
+        const endIndex = startIndex + (8 - noOfPlants%perPage);
+        const filteredPlantsList = plantsList.slice(startIndex,endIndex);
+
+        this.setState({ plantCardsPerPage: filteredPlantsList });
     }
 
     render() {
-        const plants = this.state.plantCards;
+        const plants = this.state.plantCardsPerPage ;
         return (
-            <div className="container row roomfac" id="homePageContainer">
-                {
-                    plants.map((plant) => {
-                        return (
-                            <div className="col-md-3" key={plants.id}>
-                                <HomePageSellItemsCardCOmponent plants={plant} />
-                            </div>
-                        )
-
-                    })
-                }
+            <div>
+                <div className="container-fluid">
+                    <div className="container row roomfac" id="homePageContainer">
+                        {
+                            plants.map((plant) => {
+                                return (
+                                    <div className="col-md-3" key={plants.id}>
+                                        <HomePageSellItemsCardCOmponent plants={plant} />
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+                <div className="padding20 center">
+                    <PaginationLanding></PaginationLanding>
+                </div>
+                <div className="heightto400 ">
+                  <Corousal></Corousal>
+                </div>
             </div>
+            
+            
         );
     }
 }
