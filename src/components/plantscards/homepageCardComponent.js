@@ -7,7 +7,14 @@ import PlantPrices from "../plantPricesCard/plantPriceCard";
 const HomePageSellItemsCardCOmponent = (props) => {
     const plant = props;
     return (
-        <div className="plantCard">
+        <div className ="container" key={plant.plants}>
+        
+        <div className="container-fluid"></div>
+        
+        
+        
+        
+        <div className="plantCard row">
         <Card >
             <Card.Img variant="top" src={plant.plants.img} className="homepageimg" />
             <Card.Body>
@@ -36,6 +43,8 @@ const HomePageSellItemsCardCOmponent = (props) => {
             </Card.Body>
         </Card>
         </div>
+        </div>
+   
     )
 
 }

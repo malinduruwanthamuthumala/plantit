@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <Navbar bg="success" expand="lg" id="navbar">
       <Container fluid>
-        <Navbar.Brand href="#" className="nav_action" id="logoHeader">PLANTZZ</Navbar.Brand>
+        <Navbar.Brand href="#" className="nav_action" id="logoHeader">BloomBox</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -21,22 +21,22 @@ const Header = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1" className="nav_action" >Home</Nav.Link>
-            <Nav.Link href="#action2" className="nav_action">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown" className="nav_action"  variant="info">
-              <NavDropdown.Item href="#action3"  variant="outline-success">Action</NavDropdown.Item>
+            <Nav.Link href="/" className="nav_action" >Home</Nav.Link>
+            <Nav.Link href="#action2" className="nav_action">Buy Online</Nav.Link>
+            <NavDropdown title="Services" id="navbarScrollingDropdown" className="nav_action"  variant="info">
+              <NavDropdown.Item href="#action3"  variant="outline-success">Indoor Designing</NavDropdown.Item>
               <NavDropdown.Item href="#action4" variant="outline-success" >
-                Another action
+                Wedding Events
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5"  bg="dark">
-                Something else here
+                Flora Subscriptions 
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
-          <Nav.Link href="/login" className="nav_action" >Sign up</Nav.Link>
-            <Nav.Link href="/register" className="nav_action">Sign in</Nav.Link>
+          <Nav.Link href="/login" className="nav_action" >Become a seller</Nav.Link>
+            <Nav.Link href="/register" className="nav_action">login</Nav.Link>
           </Nav>
            
          
