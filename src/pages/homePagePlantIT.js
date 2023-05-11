@@ -11,8 +11,9 @@ class HomePagePlantIt extends React.Component {
 
    
 
-    constructor() {
-        super();
+
+    constructor(props) {
+        super(props);
         this.state = {
             plantCardsPerPage : [],
             plantCards: [{
@@ -92,11 +93,11 @@ class HomePagePlantIt extends React.Component {
                 climetic_conditions: "jhj jsdhfkds sdhjfjkdsf ksdjhfkjsdf ksdjhfksdhjf kdjshfjkdshf kjhfksdjf",
                 scientific_name: "jhsdfjvsdhjfvdsf",
             }],
-            perPage:8,
+            perPage:6,
             currentPage:0,
 
         }
-        
+         
     }
 
     componentDidMount(){
@@ -108,12 +109,19 @@ class HomePagePlantIt extends React.Component {
         debugger
         const plantsList = this.state.plantCards;
         const perPage = this.state.perPage;
-        const startIndex =  this.state.currentPage * perPage;
+        const startIndex =  (this.state.currentPage * perPage);
         const noOfPlants = plantsList.length;
-        const endIndex = startIndex + (8 - noOfPlants%perPage);
+        const endIndex = startIndex + perPage < noOfPlants - 1 ? startIndex + perPage : noOfPlants - 1;
         const filteredPlantsList = plantsList.slice(startIndex,endIndex);
 
         this.setState({ plantCardsPerPage: filteredPlantsList });
+    }
+
+    clickHandler = () => {
+        debugger
+        const currentPage = ++this.state.currentPage 
+        this.setState({ currentPage: currentPage });  
+        this.setPagePagination();
     }
 
     render() {
@@ -134,7 +142,9 @@ class HomePagePlantIt extends React.Component {
                     </div>
                 </div>
                 <div className="padding20 center">
+                <button  onClick={this.clickHandler}> next</button>
                     <PaginationLanding></PaginationLanding>
+                    
                 </div>
                 <div className="heightto400 ">
                   <Corousal></Corousal>
