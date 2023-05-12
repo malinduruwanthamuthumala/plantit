@@ -10,3 +10,16 @@
     margin: 0 auto;
     justify-content: center;
 }
+
+.heightto400 {
+    height:600px;
+}
+
+.padding20 {
+    padding:10px;
+}
+
+.center {
+    margin: auto;
+    width:350px;
+  }
