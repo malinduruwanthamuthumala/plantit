@@ -4,7 +4,7 @@ class Login extends React.Component{
 
     render(){
         return (
-            <h1>login component</h1>
+            <h1>login csomponent</h1>
         )
     }
 }
