@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import Login from './pages/login';
 import Register from './pages/Register';
+import NewPlantUpload from './pages/newPlantUpload';
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/" element={<HomePagePlantIt/>}>
             
+          </Route>
+          <Route path="/newPlantUpload" element={<NewPlantUpload/>}>
+           
           </Route>
        </Routes>
       </div>
