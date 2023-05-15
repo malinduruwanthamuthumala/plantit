@@ -5,6 +5,11 @@ import Form from "react-bootstrap/Form";
 import "./uploadPlantComponent.css";
 
 const PlantUploadForm = () => {
+
+  const [enteredTitle,setEnteredTitle] = useState("");
+  const [enteredprice,setEnteredPrice] = useState("");
+  const [enteredDescription,setEnteredDescription] = useState("");
+
   const [plant, setPlantDetails] = useState({
     title: "",
     img: "https://img.freepik.com/free-photo/faux-watermelon-peperomia-plant-gray-pot_53876-110373.jpg?w=740&t=st=1677663748~exp=1677664348~hmac=e7d99c1f3bb813fcdadc2274738fd6bf2a1f144b4ec6f0f39b6b043501548520",
@@ -20,23 +25,29 @@ const PlantUploadForm = () => {
   });
 
   const onTitleChange = (event) => {
-    setPlantDetails({ ...plant, title: event.target.value });
+    setEnteredTitle(event.target.value);
   };
 
   const onPriceChangeHandler = (event) => {
-    setPlantDetails((prevState) => {
-      return {
-        ...prevState,
-        price: event.target.value,
-      };
-    });
+    setEnteredPrice(event.target.value);
   };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+     const plantDetails = {
+      ...plant,
+      title : enteredTitle,
+      price:enteredprice,
+    }
+
+    console.log(plantDetails);
+  }
 
   return (
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-4">
-          <Form className="left-aligned ">
+          <Form className="left-aligned " onSubmit={submitHandler}>
             <Form.Group className="mb-3 form-block" controlId="formBasicEmail">
               <Form.Label>title</Form.Label>
               <Form.Control
