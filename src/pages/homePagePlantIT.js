@@ -6,14 +6,17 @@ import Button from 'react-bootstrap/Button';
 import HomePageSellItemsCardCOmponent from "../components/plantscards/homepageCardComponent";
 import Corousal from "../components/UI/corousal";
 import PaginationLanding from "../components/UI/pagination";
+import NewPlantUpload from "./newPlantUpload";
 
 class HomePagePlantIt extends React.Component {
 
    
-
+    
 
     constructor(props) {
+       
         super(props);
+        this.addNewPlantHandler.bind(this);
         this.state = {
             plantCardsPerPage : [],
             plantCards: [{
@@ -93,7 +96,7 @@ class HomePagePlantIt extends React.Component {
                 climetic_conditions: "jhj jsdhfkds sdhjfjkdsf ksdjhfkjsdf ksdjhfksdhjf kdjshfjkdshf kjhfksdjf",
                 scientific_name: "jhsdfjvsdhjfvdsf",
             }],
-            perPage:6,
+            perPage:20,
             currentPage:0,
 
         }
@@ -104,6 +107,21 @@ class HomePagePlantIt extends React.Component {
         debugger
         this.setPagePagination();
     }
+
+    
+    addNewPlantHandler (newPlantData)  {
+        const newPlantDetails = {
+          ...newPlantData,
+        };
+        debugger
+        console.log(newPlantDetails);
+         
+        this.state.plantCards.push(newPlantDetails);
+        const newPlantCards = this.state.plantCards;
+        this.setState({plantCardsPerPage:newPlantCards});
+      }
+    
+     
 
     setPagePagination = () =>{
         debugger
@@ -147,7 +165,7 @@ class HomePagePlantIt extends React.Component {
                     
                 </div>
                 <div className="heightto400 ">
-                  <Corousal></Corousal>
+                <NewPlantUpload onNewPlantUpload={this.addNewPlantHandler.bind(this)} />
                 </div>
             </div>
             

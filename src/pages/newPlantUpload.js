@@ -3,11 +3,22 @@ import React from "react";
 import PlantUploadForm from "../components/planters/uploadPlantComponent";
 
 
-const NewPlantUpload = () => {
-
+const NewPlantUpload = (props) => {
+    const  saveNewPlantDataHandler = (enteredExpenseData) => {
+        debugger
+        const plantDetails = {
+         ...enteredExpenseData,
+         id: Math.random().toString(),   
+        };
+        props.onNewPlantUpload(plantDetails);
+    }
     return (
         <div>
-            <PlantUploadForm></PlantUploadForm>
+            <PlantUploadForm
+            onSaveNewPlant={saveNewPlantDataHandler}
+            >
+
+            </PlantUploadForm>
         </div>
     );
 }

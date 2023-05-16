@@ -13,6 +13,9 @@ import {
 import NewPlantUpload from './pages/newPlantUpload';
 
 function App() {
+
+ 
+
   return (
     <div className="App" >
       <Router>
@@ -21,10 +24,10 @@ function App() {
       </div>
       <div className="homePageDivider">
        <Routes>
-          <Route path="/" element={<HomePagePlantIt/>}>
+          <Route path="/" element={<HomePagePlantIt />}>
             
           </Route>
-          <Route path="/newPlantUpload" element={<NewPlantUpload/>}>
+          <Route path="/newPlantUpload" element={<NewPlantUpload />}>
            
           </Route>
        </Routes>

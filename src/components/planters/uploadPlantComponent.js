@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./uploadPlantComponent.css";
 
-const PlantUploadForm = () => {
+const PlantUploadForm = (props) => {
 
   const [enteredTitle,setEnteredTitle] = useState("");
   const [enteredprice,setEnteredPrice] = useState("");
@@ -40,7 +40,8 @@ const PlantUploadForm = () => {
       price:enteredprice,
     }
 
-    console.log(plantDetails);
+    props.onSaveNewPlant(plantDetails);
+    setEnteredPrice("");
   }
 
   return (
@@ -53,6 +54,7 @@ const PlantUploadForm = () => {
               <Form.Control
                 type="text"
                 placeholder="Enter email"
+                value={enteredTitle}
                 onChange={onTitleChange}
               />
               <Form.Text className="text-muted" hidden>
@@ -65,6 +67,7 @@ const PlantUploadForm = () => {
               <Form.Control
                 type="text"
                 placeholder="Enter email"
+                value={enteredprice }
                 onChange={onPriceChangeHandler}
               />
               <Form.Text className="text-muted" hidden>
